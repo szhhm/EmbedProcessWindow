@@ -1,0 +1,41 @@
+<RCC>
+    <qresource prefix="/">
+        <file>res/qml/AnoucementDelegate.qml</file>
+        <file>res/qml/AnoucementDelegate.qmlc</file>
+        <file>res/qml/AnoucementList.qml</file>
+        <file>res/qml/AnoucementList.qmlc</file>
+        <file>res/qml/AppDelegate.qml</file>
+        <file>res/qml/AppDelegate.qmlc</file>
+        <file>res/qml/AppManager.qml</file>
+        <file>res/qml/AppManager.qml.bak</file>
+        <file>res/qml/AppManager.qmlc</file>
+        <file>res/qml/AutoResize.qml</file>
+        <file>res/qml/AutoResize.qmlc</file>
+        <file>res/qml/main.qml</file>
+        <file>res/qml/main.qmlc</file>
+        <file>res/qml/UI_Common/qmldir</file>
+        <file>res/qml/UI_Common/SComboBox.qml</file>
+        <file>res/qml/UI_Common/SComboBox.qml.bak</file>
+        <file>res/qml/UI_Common/SComboBox.qmlc</file>
+        <file>res/qml/UI_Common/SCycleScrollText.qml</file>
+        <file>res/qml/UI_Common/SCycleScrollText.qmlc</file>
+        <file>res/qml/UI_Common/SGlobal.qml</file>
+        <file>res/qml/UI_Common/SGlobal.qmlc</file>
+        <file>res/qml/UI_Common/SGridView.qml</file>
+        <file>res/qml/UI_Common/SGridView.qmlc</file>
+        <file>res/qml/UI_Common/SLabel.qml</file>
+        <file>res/qml/UI_Common/SLabel.qmlc</file>
+        <file>res/qml/UI_Common/STextArea.qml</file>
+        <file>res/qml/UI_Common/STextArea.qmlc</file>
+        <file>res/qml/UI_Common/SToolButton.qml</file>
+        <file>res/qml/UI_Common/SToolButton.qmlc</file>
+        <file>res/images/1.jpg</file>
+        <file>res/images/1.png</file>
+        <file>res/images/2.jpg</file>
+        <file>res/images/2.png</file>
+        <file>res/images/3.png</file>
+        <file>res/images/4.png</file>
+        <file>res/images/down_Arror.png</file>
+        <file>res/images/windowContainerBg.png</file>
+    </qresource>
+</RCC>
