@@ -12,13 +12,13 @@
 
 #include <QMainWindow>
 #include "ProcessWindow.h"
-QDateTime startTime;
+extern QDateTime startTime;
 SFrontWorker::SFrontWorker(QObject *parent) :
     QObject(parent)
     ,m_verticalRatio(1.0)
     ,m_horizontalRatio(1.0)
 {
-    startTime = QDateTime::currentDateTime();
+
 }
 
 SFrontWorker::~SFrontWorker()
@@ -73,7 +73,7 @@ void SFrontWorker::init()
 //    engine->rootContext()->setContextProperty("mainView",mainView);
     if(nullptr == mainView){
         mainView = new SQuickView(engine);
-        mainView->resize(800,600);
+//        mainView->resize(800,600);
         mainView->show();
     }
     S_WRITE_LOG("",SLogBase::S_INFO,QString::fromLocal8Bit("SFrontWorker::SFrontWorker():加载完成，耗时:%1 ms。").arg(QDateTime::currentDateTime().msecsTo(startTime)));
@@ -86,7 +86,7 @@ SAnoucementMsgModel *SFrontWorker::anoucementMsgs()
     for(int i = 0 ; i < 10; i++){
         QSharedPointer<SAnoucementMsg> pMsg = QSharedPointer<SAnoucementMsg>(new SAnoucementMsg);
         pMsg->m_msgId = i;
-        pMsg->m_msgContent = "公告消息"+QString::number(i);
+        pMsg->m_msgContent = QString::fromLocal8Bit("公告消息")+QString::number(i);
         pMsg->m_msgType = i%3;
         model.m_pMsgVec.prepend(pMsg);
     }
@@ -114,6 +114,13 @@ void SFrontWorker::embededWindow()
     mainWindow->show();
 }
 
+void SFrontWorker::testModifyModelData()
+{
+    qDebug() <<"testModifyModelData";
+    QModelIndex& index = anoucementMsgs()->index(0);
+    anoucementMsgs()->setData(index,u8"这个是修改后的公告消息",SAnoucementMsgModel::MsgContentRole);
+}
+
 /*
  * 名称:get_localmachine_ip
  * 功能:获取本机的IP地址
@@ -139,4 +146,10 @@ QString SFrontWorker::getLocalmachineIp() const
         ipAddress = QHostAddress(QHostAddress::LocalHost).toString();
     S_WRITE_LOG("",SLogBase::S_INFO,QString::fromLocal8Bit("SFrontWorker::getLocalmachineIp():IP地址：%2，耗时:%1 ms。").arg(QDateTime::currentDateTime().msecsTo(startTime)).arg(ipAddress));
     return ipAddress;
+}
+
+void SFrontWorker::onDownloadFinished(const QString &compressedPathName)
+{
+    qDebug() << u8"下载完成";
+    S_WRITE_LOG("", SLogBase::S_INFO, QString::fromLocal8Bit("下载完成，耗时：%1 ms").arg(QDateTime::currentDateTime().msecsTo(startTime)));
 }

@@ -1,4 +1,5 @@
-#include "SAnoucementMsg.h"
+﻿#include "SAnoucementMsg.h"
+#include <QDebug>
 
 SAnoucementMsg::SAnoucementMsg(QObject *parent) : QObject(parent)
 {
@@ -49,6 +50,23 @@ QVariant SAnoucementMsgModel::data(const QModelIndex &index, int role) const
         break;
     }
     return QVariant();
+}
+
+bool SAnoucementMsgModel::setData(const QModelIndex &index, const QVariant &value, int role)
+{
+    if(index.row() > m_pMsgVec.size())
+        return false;
+    auto &data = m_pMsgVec.at(index.row());
+    switch (role) {
+    case MsgContentRole:
+        qDebug() << value;
+        data->m_msgContent = value.toString();
+        break;
+    default:
+        break;
+    }
+    emit dataChanged(index,index);
+    return true;
 }
 
 QHash<int, QByteArray> SAnoucementMsgModel::roleNames() const

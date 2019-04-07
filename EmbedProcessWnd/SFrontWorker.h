@@ -18,6 +18,7 @@ public:
     Q_INVOKABLE static SAnoucementMsgModel* anoucementMsgs();
     Q_INVOKABLE void close();
     Q_INVOKABLE void embededWindow();
+    Q_INVOKABLE void testModifyModelData();
 
     double horizontalRatio() const;
     double verticalRatio() const;
@@ -30,7 +31,7 @@ signals:
     void verticalRatioChanged();
 
 public slots:
-
+    void onDownloadFinished(const QString& compressedPathName);
 private:
     SQuickView* mainView;
     double m_horizontalRatio;

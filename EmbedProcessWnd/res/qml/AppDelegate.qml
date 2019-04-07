@@ -1,14 +1,14 @@
-import QtQuick 2.9
-import QtQuick.Controls 1.4
+﻿import QtQuick 2.9
+import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
 import "UI_Common"
 
 Rectangle {
     id:root
     property var colors: ["#815bff", "#ff77ff","#4dffff","#66b3ff","#ff8040","#e1e100","#9999cc","#b766ad"]
-    color:ma.containsMouse ? Qt.darker(colors[type]) : colors[type]
+    color:ma.containsPress ? Qt.darker(colors[type]) : ma.containsMouse ? Qt.lighter(colors[type]) : colors[type]
     radius: 8
-    border.width: 1
+    border.width: ma.containsPress ? 2 : 1
     border.color: /*ma.containsMouse ? Qt.lighter(colors[type]) :*/ colors[type]
 
     ColumnLayout {

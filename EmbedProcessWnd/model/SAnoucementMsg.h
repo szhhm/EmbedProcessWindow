@@ -1,4 +1,4 @@
-#ifndef SANOUCEMENTMSG_H
+﻿#ifndef SANOUCEMENTMSG_H
 #define SANOUCEMENTMSG_H
 
 #include <QObject>
@@ -33,8 +33,9 @@ public:
     explicit SAnoucementMsgModel(QObject*parent = nullptr);
     virtual ~SAnoucementMsgModel();
 
-    Q_INVOKABLE virtual int rowCount(const QModelIndex &parent = QModelIndex()) const ;
-    Q_INVOKABLE virtual QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const ;
+    int rowCount(const QModelIndex &parent = QModelIndex()) const ;
+    QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const ;
+    bool setData(const QModelIndex &index, const QVariant &value, int role);
     virtual QHash<int,QByteArray> roleNames() const;
 public:
     QVector<QSharedPointer<SAnoucementMsg> > m_pMsgVec;
